@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(./4.png);
+}
+
+h1 {
+    text-align: center;
+    /* color: rgb(6, 6, 68); */
+    padding: 40px;
+    color: rgb(0, 158, 169);
+}
+
+h3 {
+    color: rgb(25, 67, 92);
+}
+
+.container {
+    margin-top: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 0.97) 49%, rgba(237, 237, 237, 0.94) 100%);
+}
+
+.form-control {
+    width: 135px !important;
+    margin: 5px;
+}
+
+.result {
+    margin: 5px 0;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 20px;
+}
+
+.form-group p {
+    margin-top: 15px;
+}
+
+.triangle, #triangles {
+    width: 100%;
+}
+
+.btn-bottom {
+    margin: 10px 10px 0 0;
+}
+
+.btn-danger {
+    margin-top: 7px;
+    border-radius: 5px;
+}
+
+.list-group {
+    padding-bottom: 40%;
+}
+
+.list-group-item {
+    background: rgba(255, 255, 255, 0.616);
+}
+
+.btn-block {
+    border-end-start-radius: 0px;
+}
+
+.mocha {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    padding: 0;
+}
+
+.mocha h1 {
+    margin: 0 !important;
+    padding: 5px 0!important;
+}
+
+.mocha li {
+    padding: 0px 0!important;
+    font-size: 20px !important;
+}
+
+.mocha h1 {
+    color: rgb(25, 67, 92) !important;
+    font-size: 30px !important;
+}
+
+.mocha h2 {
+    font-size: 18px !important;
+}
+
+#mocha-stats .progress {
+
+  width: 40 !important;
+  height: 50 !important;
+    /* height: 100%; */
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Elementary Tasks</title>
+    <style>
+        #mocha-stats .progress {
+    
+            width: 40 !important;
+            height: 50 !important;
+            /* height: 100%; */
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+    <script src="src/task1.js"></script>
+    <script src="src/task2.js"></script>
+    <script src="src/task3.js"></script>
+    <script src="src/task4.js"></script>
+    <script src="src/task5.js"></script>
+    <script src="src/task6.js"></script>
+    <script src="src/task7.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JS Elementary Tasks Tests</h1>
+        <div class="row">
+            <div class="col-4">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-task1-list" data-toggle="list"
+                        href="#list-task1" role="tab" aria-controls="task1">Test №1</a>
+                    <a class="list-group-item list-group-item-action" id="list-task2-list" data-toggle="list"
+                        href="#list-task2" role="tab" aria-controls="task2">Test №2</a>
+                    <a class="list-group-item list-group-item-action" id="list-task3-list" data-toggle="list"
+                        href="#list-task3" role="tab" aria-controls="task3">Test №3</a>
+                    <a class="list-group-item list-group-item-action" id="list-task4-list" data-toggle="list"
+                        href="#list-task4" role="tab" aria-controls="task4">Test №4</a>
+                    <a class="list-group-item list-group-item-action" id="list-task5-list" data-toggle="list"
+                        href="#list-task5" role="tab" aria-controls="task5">Test №5</a>
+                    <a class="list-group-item list-group-item-action" id="list-task6-list" data-toggle="list"
+                        href="#list-task6" role="tab" aria-controls="task6">Test №6</a>
+                    <a class="list-group-item list-group-item-action" id="list-task7-list" data-toggle="list"
+                        href="#list-task7" role="tab" aria-controls="task7">Test №7</a>
+                </div>
+            </div>
+            <div class="col-8 main">
+                <div class="tab-content" id="nav-tabContent">
+                    <!--Page of task №1-->
+                    <div class="tab-pane fade show active" id="list-task1" role="tabpanel"
+                        aria-labelledby="list-task1-list">
+                        <div>
+                            <script src="src/task1.js"></script>
+                            <script src="tests/test1.js"></script>
+                            <div id="mocha" class=" mocha"></div>
+                            <script>
+                                mocha.run();
+                            </script>
+
+                        </div>
+                    </div>
+
+                    <!--Page of task №2-->
+                    <div class="tab-pane fade" id="list-task2" role="tabpanel" aria-labelledby="list-task2-list">
+                        <div>
+                            <h3>Analysis of envelopes</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+
+                    <!--Page of task №3-->
+                    <div class="tab-pane fade" id="list-task3" role="tabpanel" aria-labelledby="list-task3-list">
+                        <div>
+                            <h3>Sort triangles</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+
+                    <!--Page of task №4-->
+                    <div class="tab-pane fade" id="list-task4" role="tabpanel" aria-labelledby="list-task4-list">
+                        <div>
+                            <h3>Palindrome</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+
+                    <!--Page of task №5-->
+                    <div class="tab-pane fade" id="list-task5" role="tabpanel" aria-labelledby="list-task5-list">
+                        <div>
+                            <h3>Lucky tickets</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+                    <!--Page of task №6-->
+                    <div class="tab-pane fade" id="list-task6" role="tabpanel" aria-labelledby="list-task6-list">
+                        <div>
+                            <h3>Numerical sequence</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+                    <!--Page of task №7-->
+                    <div class="tab-pane fade" id="list-task7" role="tabpanel" aria-labelledby="list-task7-list">
+                        <div>
+                            <h3>Fibonacci number range</h3>
+                            <hr>
+                        </div>
+                        <div class="result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <a href="index.html" class="btn btn-primary btn-lg btn-block"> Main</a>
+        </div>
+    </div>
+</body>
+
+</html>
