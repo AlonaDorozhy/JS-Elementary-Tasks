@@ -38,11 +38,7 @@ function runEnvelopes(i) {
     }
 }
 
-
-
-
-
-
+//TASK 3
 function allTriangles(n) {
     let arrayTriangles = [];
     let getTriangles = document.querySelectorAll(".triangle");
@@ -74,11 +70,8 @@ function allTriangles(n) {
             document.getElementById('err3').innerHTML = "";
         }, 4000)
     }
-       
-    
-
+          
 }
-let count = 0;
 
 function addTriangle() {
     let len = document.querySelectorAll(".triangle").length;
@@ -100,6 +93,35 @@ function delTriangle() {
     let triangles = document.querySelectorAll(".triangle");
     triangles[triangles.length - 1].remove(triangles[triangles.length]);
 }
+
+//  TASK 4
+
+
+
+function runPalindrome(p) {
+    let value = document.form4.elements[0].value;
+
+    let result = Palindrome(value);
+
+    if (!result.status) {
+        document.getElementById('result4').innerHTML = ` ${result} `;
+    } else {
+        document.getElementById('err4').innerHTML = ` ${result.reason} `;
+        document.getElementById('err4').style = "color:  rgba(245, 25, 25, 0.616);";
+        setTimeout(() => {
+            document.getElementById('err4').innerHTML = "";
+        }, 4000)
+    }
+
+    
+}
+
+
+
+
+
+
+
 //error handling function
 function errorHandler(err, result, n) {
     console.log(err);

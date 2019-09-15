@@ -68,5 +68,3 @@ describe("Envelopes", function () {
 
 });
 
-let doc = document.getElementsByTagName("h1") 
-console.log(doc);

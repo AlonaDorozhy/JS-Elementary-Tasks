@@ -1,38 +1,64 @@
-function definePalindrome(p){
-    let checkValid = isValid4(p);
-
-    if (!checkValid.status) {
-        p = (typeof p == 'number') ? p.toString() : p;// if p typeof number
-        for (let i = 0; i < p.length; i++) {
-            for (let j = 0; j < p.length; j++) {
-                let pal = p.slice(i, j + i + 1); // get part of the number
-                let palReverse = pal.split('').reverse().join(''); //reverse the part of the number
-
-                if (pal == palReverse && pal.length > 1) return pal;
-            }
+function Palindrome(number) {
+    let num = number;
+    let palindromes = [];
+    let longest;
+    console.log(number);
+    if (!checkValidPal(num)) {
+        if(num.length ===1 ){
+            result = `Unable to find a palindrome in one digit!`
+            return result;
         }
-
-        return 0;
-
-    } else {
-        return checkValid;
+        while (num.length !== 0) {
+            for (let i = 1; i < num.length; i++) {
+                if (num.substring(0, i + 1) === num.substring(0, i + 1).split("").reverse("").join("")) {
+                    palindromes.push(num.substring(0, i + 1));
+                }
+            }
+            num = num.substring(1);
+        }
+        palindromes.sort(function (a, b) {
+            return a.length - b.length;
+        })
+        if (palindromes.length === 0) {
+            result = `Palindrome not found in this number`
+            return result;
+        }
+        longest = palindromes[palindromes.length - 1]
+        result = `The longest palindrome from this number ${longest}. </br>  All of the found palindromes : ${palindromes}`
     }
+    else {
+        result = checkValidPal(num);
+        console.log(result);
+        return result;
+    }
+    console.log(result);
+    return result
+
 }
 
+function checkValidPal(pal) {
 
-function isValid4(p) {
-    //checking existence value
-    if (p) {
-        let reg = /^\d+$/;
-
-        if (reg.test(p)) {
-            return true;
-        } else return {
-            status: 'failed',
-            reason: 'invalid'
-        }
-    } else return {
-        status: 'failed',
-        reason: 'empty'
+    let message = "";
+    if (pal.length === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Sent field is empty',
+        };
+        return message
     }
+    else if ((pal.match(/^[0-9]+$/) != null) == false) {
+        message = {
+            status: 'Failed',
+            reason: 'The submitted palindrome should only contain positive numbers!',
+        };
+        return message
+    }
+    else if (pal.length > 50) {
+        message = {
+            status: 'Failed',
+            reason: 'The submitted palindrome should be no longer than 50!',
+        };
+        return message
+    }
+    return message
 }
