@@ -37,6 +37,7 @@
 
     <script>
         var assert = chai.assert;
+        var be = chai.be
     </script>
     <script src="src/task1.js"></script>
     <script src="src/task2.js"></script>
@@ -54,13 +55,10 @@
         <div class="row">
             <div class="col-4">
 
-                <a href="/indexTests.html?grep=Chessboard%20tests">Chess</a>
-                <a href="/indexTests.html?grep=Envelopes"> Env</a>
-                <a href="/indexTests.html?grep=Triangle"> TRi</a>
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-task1-list" data-toggle="list"
-                        href="#list-task1" role="tab" aria-controls="task1">Test №1</a>
-                    <a class="list-group-item list-group-item-action " href="/indexTests.html?grep=Chessboard%20tests"
+                    <a class="list-group-item list-group-item-action" 
+                        href="/indexTests.html" role="tab" aria-controls="task1">Test №1</a>
+                    <a  class="list-group-item list-group-item-action " href="/indexTests.html?grep=Chessboard%20tests"
                         role="tab"> Chessboard</a>
                     <a class="list-group-item list-group-item-action " href="/indexTests.html?grep=Envelopes"
                         role="tab"> Envelops</a>
@@ -68,6 +66,10 @@
                         role="tab">Triangles</a>
                     <a class="list-group-item list-group-item-action " href="/indexTests.html?grep=Palindrome"
                         role="tab">Palindrome</a>
+                    <a class="list-group-item list-group-item-action " href="/indexTests.html?grep=Lucky%20Tickets"
+                        role="tab">Lucky Tickets</a>
+                    <a class="list-group-item list-group-item-action " href="indexTests.html?grep=Numerical%20sequence"
+                        role="tab">Sequence</a>
                    
                 </div>
             </div>
@@ -81,6 +83,8 @@
                             <script src="tests/test2.js"></script>
                             <script src="tests/test3.js"></script>
                             <script src="tests/test4.js"></script>
+                            <script src="tests/test5.js"></script>
+                            <script src="tests/test6.js"></script>
 
                             <div id="mocha" class=" mocha"></div>
                             <script>
@@ -134,8 +138,9 @@
                     <!--Page of task №5-->
                     <div class="tab-pane fade" id="list-task5" role="tabpanel" aria-labelledby="list-task5-list">
                         <div>
-                            <h3>Lucky tickets</h3>
-                            <hr>
+                            <div id="mocha" class=" mocha">
+                            
+                            </div>
                         </div>
                         <div class="result"></div>
                     </div>

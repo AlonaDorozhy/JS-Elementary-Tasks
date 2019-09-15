@@ -94,13 +94,12 @@ function delTriangle() {
     triangles[triangles.length - 1].remove(triangles[triangles.length]);
 }
 
+
 //  TASK 4
-
-
 
 function runPalindrome(p) {
     let value = document.form4.elements[0].value;
-
+   
     let result = Palindrome(value);
 
     if (!result.status) {
@@ -116,9 +115,45 @@ function runPalindrome(p) {
     
 }
 
+//TASK 5
+// TASK 5
+function runTickets(i) {
+    let input = document.form5.elements;//get inputs
+    let min = input[0].value;
+    let max = input[1].value;
+console.log(max);
+    let result = luckyTickets({ "min": min, "max": max });
+
+    if (!result.status) {
+        document.getElementById('result5').innerHTML = ` ${result} `;
+    } else {
+        document.getElementById('err5').innerHTML = ` ${result.reason} `;
+        document.getElementById('err5').style = "color:  rgba(245, 25, 25, 0.616);";
+        setTimeout(() => {
+            document.getElementById('err5').innerHTML = "";
+        }, 4000)
+    }
+}
 
 
 
+// TASK 6
+function runNumberSequence(n) {
+    let input = document.form6.elements;//get inputs
+
+    //run the main function
+    let result = Sequence(input[0].value, input[1].value);
+
+    if (!result.status) {
+        document.getElementById('result6').innerHTML = ` ${result} `;
+    } else {
+        document.getElementById('err6').innerHTML = ` ${result.reason} `;
+        document.getElementById('err6').style = "color:  rgba(245, 25, 25, 0.616);";
+        setTimeout(() => {
+            document.getElementById('err6').innerHTML = "";
+        }, 4000)
+    }
+}
 
 
 

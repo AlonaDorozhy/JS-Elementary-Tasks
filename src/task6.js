@@ -1,35 +1,78 @@
-function numberSequence(n, m){
-    let checkValid = isValid6(n, m);
-
-    if (!checkValid.status) {
-        n = parseInt(n);
-        m = parseInt(m);
-
-        let arr = [];
-        let start = Math.ceil(Math.sqrt(m));
-
-        for (let i = start; i < start + n; i++) {
-            arr.push(i);
+function Sequence(rowLength, square) {
+    // let result = checkValidSeq(rowLength, square);
+    if (!checkValidSeq(rowLength, square)) {
+        const rowNumbers = [];
+        let startNumber = Math.sqrt(square);
+        for (startNumber; rowNumbers.length < rowLength; startNumber++) {
+            rowNumbers.push(startNumber);
         }
-
-        return arr.join(',');
+        let seq = rowNumbers.join(', ');
+        console.log(seq);
+        result = `Your result : ${seq}`
+        return result
     } else {
-        return checkValid;
+        result = checkValidSeq(rowLength, square);
+        console.log(result);
+        return result;
     }
+
+}
+
+function checkValidSeq(rowLength, square) {
+    let message = "";
+    let len = Number(rowLength);
+    let squ = Number(square)
+
+    let reg = /^\d+$/;
+    if (len === 0 && squ === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'All fields are empty, value cannot be a zero',
+        };
+        return message
+    }
+    else if (len === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Length field is empty',
+        };
+        return message
+    }
+    else if (squ === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Square field is empty',
+        };
+        return message
+    }
+    else if (reg.test(rowLength) === false || reg.test(square) === false) {
+        message = {
+            status: 'Failed',
+            reason: 'Incorrectly entered length and / or square. It must be only a positive number',
+        };
+        return message
+    }
+
+    else if (len < 0 && squ < 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Passed arguments smaller than 0',
+        };
+        return message
+    }
+    else if (Number.isInteger(Math.sqrt(squ)) == false) {
+        message = {
+            status: 'Failed',
+            reason: 'The passed value in arguments cannot be the square of a number.',
+        };
+        return message
+    }
+
+    return message;
 }
 
 
-function isValid6(n, m) {
-    if (n && m) {
-        let reg = /^\d+$/;
-        if ((reg.test(n)) && (reg.test(m)) && parseInt(n) && parseInt(m)) {
-            return true;
-        } else return {
-            status: 'failed',
-            reason: 'invalid'
-        }
-    } else return {
-        status: 'failed',
-        reason: 'empty'
-    }
-}
+
+
+
+

@@ -1,92 +1,108 @@
-function tickets(min, max){
-    let checkValid = isValid5(min, max);
+const ticketMaxLength = 6;
 
-    if (!checkValid.status) {
-        let simpleMethodCounter = 0,
-            hardMethodCounter = 0;
+function luckyTickets(context) {
+    let min = Number(context.min);
+    let max = Number(context.max);
+    let simple = 0;
+    let hard = 0;
+    let result;
+    let count; 
+    console.log(context);
+    if (!checkValidTicket(context)) {
+        for (min; min <= max; min++) {
+            let currentTicket = String(min);
 
-        for (let i = parseInt(min); i < parseInt(max)+1; i++) {
-            let arr = numToArr(i);// run numToArr() get array with numbers
-
-            //run easy and hard method and count the result of each of them
-            simpleMethodCounter += simpleMethod(arr);
-            hardMethodCounter += hardMethod(arr);
-        }
-
-        //check out the winning method
-        if (simpleMethodCounter > hardMethodCounter) {
-            return `Победил простой метод - ${simpleMethodCounter}, против - ${hardMethodCounter}`
-        } else if (simpleMethodCounter < hardMethodCounter){
-            return `Победил сложный метод - ${hardMethodCounter}, против - ${simpleMethodCounter}`
-        } else return `Ни один из методов не победил`;
-
-    } else {
-        return checkValid;
-    }
-}
-
-
-function isValid5(min, max) {
-    if (min && max) {
-        let reg = /^\d+$/;
-        if (reg.test(min) && reg.test(max) && parseInt(min) <= parseInt(max)) {
-            if (min.length == 6 && max.length == 6) {
-                return true;
-            } else return {
-                status: 'failed',
-                reason: 'notEnoughSymbol'
+            if (currentTicket.length < ticketMaxLength) {
+                currentTicket = "0".repeat(ticketMaxLength - currentTicket.length) + currentTicket;
             }
-        } else return {
-            status: 'failed',
-            reason: 'invalid'
+            let ticketArray = currentTicket.split("").map(number => Number(number));
+            simple += simpleMethod(ticketArray);
+            hard += hardMethod(ticketArray);
+            
         }
-    } else return {
-        status: 'failed',
-        reason: 'empty'
+        count = { simple, hard };
+        if (simple === hard) {
+            count.winner = "No winner ";
+        } else  count.winner = (simple > hard) ? "simple" : "hard";
+        result = `Simple: ${count.simple}  Hard: ${count.hard} <br> WINNER: ${count.winner}`
+       
+        console.log(result);
+        return result;
+
+    }else{
+        result = checkValidTicket(context);
+        console.log(result);
+        return result;
     }
 }
 
-// function converts numbers to an array
-function numToArr(index) {
-    let arr = [0,0,0,0,0,0];
-    let numToStr = index.toString();
-
-    for (let j = 0; j < numToStr.length; j++) {//array with numbers
-        arr[arr.length-j-1] = parseInt(numToStr[numToStr.length-j-1]);
-    }
-
-    return arr;
+function simpleMethod(ticket) {
+    let leftSide = ticket[0] + ticket[1] + ticket[2];
+    let rightSide = ticket[3] + ticket[4] + ticket[5];
+    return leftSide === rightSide;
 }
 
-//run simple method
-function simpleMethod(arr) {
-    //create a variable with the sum of the left and right sides of the number
-    let counter = 0,
-        leftNum = 0,
-        rightNum = 0;
-
-    for (let i = 0; i < arr.length/2; i++) {
-        leftNum += parseInt(arr[i]);
-        rightNum += parseInt(arr[i+arr.length/2]);
-    }
-
-    counter = leftNum===rightNum ? 1 : 0;
-    return counter;
+function hardMethod(ticket) {
+    let even = 0;
+    let odd = 0;
+    ticket.forEach(number => (number % 2) ? even += number : odd += number);
+    return even === odd;
 }
 
-//run hard method
-function hardMethod(arr) {
-    //create a variable with the sum of the even and odd numbers
-    let counter = 0,
-        evenNum = 0,
-        oddNum = 0;
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i]%2) {
-            oddNum += +arr[i];
-        } else evenNum += +arr[i];
+function checkValidTicket(context) {
+    let min = Number(context.min);
+    let max = Number(context.max);
+    let reg = /^\d+$/;
+    let message = "";
+    
+    if (min === 0 && max === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'All fields are empty, value cannot be a zero',
+        };
+        return message
     }
-
-    counter = oddNum===evenNum ? 1 : 0;
-    return counter;
+    else if (min === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Min field is empty',
+        };
+        return message
+    }
+   else if (max === 0) {
+        message = {
+            status: 'Failed',
+            reason: 'Max field is empty',
+        };
+        return message
+    }
+    else if (reg.test(min) === false || reg.test(max) === false) {
+        message = {
+            status: 'Failed',
+            reason: 'Incorrectly entered min and / or max. It must be only a positive number',
+        };
+        return message
+    }
+    else if (min > max || max ===0 ) {
+        message = {
+            status: 'Failed',
+            reason: 'The minimum value must be less than the maximum value.',
+        };
+        return message
+    }
+    else if ( max > 999999 ) {
+        message = {
+            status: 'Failed',
+            reason: 'The possible maximum value cannot exceed 999999.',
+        };
+        return message
+    }
+    else if ( max === min ) {
+        message = {
+            status: 'Failed',
+            reason: 'Maximal and minimal value cannot be equal.',
+        };
+        return message
+    }
+    return message
 }
