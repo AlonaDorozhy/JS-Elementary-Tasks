@@ -20,14 +20,14 @@
         crossorigin="anonymous"></script>
 
 
-    <script src="src/task1.js"></script>
+    <!-- <script src="src/task1.js"></script>
     <script src="src/task2.js"></script>
     <script src="src/task3.js"></script>
     <script src="src/task4.js"></script>
     <script src="src/task5.js"></script>
     <script src="src/task6.js"></script>
     <script src="src/task7.js"></script>
-    <script src="main.js"></script>
+    <script src="main.js"></script> -->
 </head>
 
 <body>
@@ -36,11 +36,11 @@
         <div class="row">
             <div class="col-4">
                 <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-task1-list" data-toggle="list"
+                    <a class="list-group-item list-group-item-action " id="list-task1-list" data-toggle="list"
                         href="#list-task1" role="tab" aria-controls="task1">Task №1</a>
                     <a class="list-group-item list-group-item-action" id="list-task2-list" data-toggle="list"
                         href="#list-task2" role="tab" aria-controls="task2">Task №2</a>
-                    <a class="list-group-item list-group-item-action" id="list-task3-list" data-toggle="list"
+                    <a class="list-group-item list-group-item-action active" id="list-task3-list" data-toggle="list"
                         href="#list-task3" role="tab" aria-controls="task3">Task №3</a>
                     <a class="list-group-item list-group-item-action" id="list-task4-list" data-toggle="list"
                         href="#list-task4" role="tab" aria-controls="task4">Task №4</a>
@@ -56,8 +56,7 @@
             <div class="col-8 main">
                 <div class="tab-content" id="nav-tabContent">
                     <!--Page of task №1-->
-                    <div class="tab-pane fade show active" id="list-task1" role="tabpanel"
-                        aria-labelledby="list-task1-list">
+                    <div class="tab-pane fade fade" id="list-task1" role="tabpanel" aria-labelledby="list-task1-list">
                         <div>
                             <h3>Chess board</h3>
                             <hr>
@@ -68,15 +67,17 @@
 
                         <form class="form-inline" name="form1">
                             <div class="form-group mx-sm-3 mb-2">
-                                <input type="text"  class="form-control" placeholder=" length = 50">
+                                <input type="text" class="form-control" placeholder=" length = 50">
                                 <input type="text" class="form-control" placeholder="width  50">
                                 <input type="text" class="form-control" placeholder="symbol">
                             </div>
                             <button type="button" class="btn btn-primary mb-2" onclick="chessBoardRun(0)">Run</button>
                         </form>
-                        <div id="result1"></div>
 
-                        <div class="result"></div>
+                        <div class=" result1"></div>
+                        <div id="result1"></div>
+                        <div id="err1"></div>
+
                     </div>
 
                     <!--Page of task №2-->
@@ -107,10 +108,13 @@
                         </form>
 
                         <div class="result"></div>
+                        <div id="result2"></div>
+                        <div id="err2"></div>
                     </div>
 
                     <!--Page of task №3-->
-                    <div class="tab-pane fade" id="list-task3" role="tabpanel" aria-labelledby="list-task3-list">
+                    <div class="tab-pane  show active" id="list-task3" role="tabpanel"
+                        aria-labelledby="list-task3-list">
                         <div>
                             <h3>Sort triangles</h3>
                             <hr>
@@ -124,28 +128,22 @@
                             <div id="triangles">
                                 <div class="triangle">
                                     <span>1 Triangle: </span>
-                                    <input type="text" class="form-control" placeholder="ABC">
+                                    <input type="text" maxlength="3" class="form-control" placeholder="ABC">
                                     <input type="text" class="form-control" placeholder="A">
                                     <input type="text" class="form-control" placeholder="B">
                                     <input type="text" class="form-control" placeholder="C">
                                 </div>
-                                <div class="triangle">
-                                    <span>2 Triangle: </span>
-                                    <input type="text" class="form-control" placeholder="DEF">
-                                    <input type="text" class="form-control" placeholder="D">
-                                    <input type="text" class="form-control" placeholder="E">
-                                    <input type="text" class="form-control" placeholder="F">
-                                </div>
                             </div>
                             <p id="mes"> </p>
-                            <button type="button" class="btn btn-success btn-bottom mb-2 " id="triangle"
+                            <button type="button" class="btn btn-success btn-bottom mb-2 " id="addBtn"
                                 onclick="addTriangle()">Add</button>
 
                             <button type="button" class="btn btn-primary btn-bottom mb-2"
-                                onclick="areaOfTriangle(2)">Run</button>
+                                onclick="allTriangles()">Run</button>
                         </form>
-
-                        <div class="result"></div>
+                        <div id="result3"></div>
+                        <div id="err3"></div>
+                     
                     </div>
 
                     <!--Page of task №4-->
@@ -162,7 +160,7 @@
 
                         <form class="form-inline" name="form4">
                             <div class="form-group mx-sm-3 mb-2">
-                                <input type="text" maxlength="100"  class="form-control" placeholder="num">
+                                <input type="text" maxlength="100" class="form-control" placeholder="num">
                             </div>
                             <button type="button" class="btn btn-primary mb-2"
                                 onclick="runDefinePalindrome(3)">Run</button>
@@ -234,7 +232,7 @@
                         <form class="form-inline" name="form7">
                             <div class="form-group mx-sm-3 mb-2">
                                 <label>Search by length: </label>
-                                <input type="text" class="form-control"  placeholder="length"></div>
+                                <input type="text" class="form-control" placeholder="length"></div>
                             <button type="button" class="btn btn-primary mb-2" onclick="runRangeFib(6)">Run</button>
                         </form>
                         <form class="form-inline" name="form7">
@@ -255,6 +253,15 @@
             <a href="indexTests.html" class="btn btn-primary btn-lg btn-block"> Tests</a>
         </div>
     </div>
+
+    <script src="src/task1.js"></script>
+    <script src="src/task2.js"></script>
+    <script src="src/task3.js"></script>
+    <script src="src/task4.js"></script>
+    <script src="src/task5.js"></script>
+    <script src="src/task6.js"></script>
+    <script src="src/task7.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

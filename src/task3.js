@@ -1,89 +1,127 @@
-function areaOfTriangle(arr){
-    let checkValid = isValid3(arr);
-
-    if (!checkValid.status) {
-        let arrOfAreas = getAreas(arr); //run getAreas() and get array of areas
-
-        if (!arrOfAreas.status) {
-            let arrOfCopy = sortTriangle(arr, arrOfAreas); //run sortTriangle() and get sort array
-            let arrOfNames = arrOfCopy.map( (triangle) => triangle.vertices);//get only names
-
-            return arrOfNames;
-
-        } else return arrOfAreas;
-
+function triangles(array) {
+    let p, S, result = "",
+        info = []
+    let sortArray = []
+    if (!checkValidTriangles(array)) {
+        for (let i = 0; i < array.length; i++) {
+            info.push(Object.values(array[i]));
+            p = ((parseFloat(info[i][1]) + parseFloat(info[i][2]) + parseFloat(info[i][3])) * 0.5).toFixed(2);
+            S = Math.sqrt(p * (p - parseFloat(info[i][1])) * (p - parseFloat(info[i][2])) * (p - parseFloat(info[i][3]))).toFixed(2);
+            sortArray.push([parseFloat(S), array[i].vertices.toUpperCase()])
+        }
+        sortArray.sort(function (a, b) {
+            if (a[0] > b[0])  return -1;
+            if (a[0] < b[0]) return 1;
+            return 0;
+        });
+        for (i = 0; i < sortArray.length; i++) {
+            result += ` ${sortArray[i][1]} :  ${sortArray[i][0]} </br>`
+        }
+        return result
     } else {
-        return checkValid;
+        result = checkValidTriangles(array)
+        return result
     }
+
 }
 
-function isValid3(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        let reg = /^([0-9]*[.])?[0-9]+$/;
+function checkValidTriangles(arr) {
 
-        let a = arr[i].a,
-            b = arr[i].b,
-            c = arr[i].c;
-
-        if (a && b && c ) {
-            if (reg.test(a) && reg.test(b) && reg.test(c)){
-                console.log(`triangle №${i+1} is valid`);
-            } else return {
-                status: 'failed',
-                reason: 'invalid'
+    let message
+    let frs = []
+    let uni = [];
+    for (i = 0; i < arr.length; i++) {
+        frs.push(arr[i].vertices)
+        function unique(frs) {
+            uni = [];
+            for (let str of frs) {
+                if (!uni.includes(str)) {
+                    uni.push(str);
+                }
             }
-        } else return {
-            status: 'failed',
-            reason: 'empty'
+            return uni;
         }
     }
-
-    return true;
-}
-
-
-function getAreas(arr) {
-    let arrOfAreas = [];
-
-    for (let i = 0; i < arr.length; i++) {
-        let a = parseInt(arr[i].a);
-        let b = parseInt(arr[i].b);
-        let c = parseInt(arr[i].c);
-
-        let p = (a + b + c) / 2;
-        let area = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-
-        //if area is NaN, one of the values was entered incorrectly
-        if(isNaN(area)){
-            return {
-                status: 'failed',
-                reason: 'incorrectSides'
-            }
-        } else {
-            arrOfAreas.push(area);
-        }
+    if (unique(frs).length !== frs.length) {
+        message = {
+            status: 'Failed',
+            reason: 'Triangles must have unique vertex names!',
+        };
     }
 
-    return arrOfAreas;
-}
+    if (Array.isArray(arr) && arr.length > 0) {
+        arr.forEach((triangle) => {
+            let value = Object.values(triangle);
+            let vert = value[0].toUpperCase();
+            let a = parseFloat(value[1]);
+            let b = parseFloat(value[2]);
+            let c = parseFloat(value[3]);
+            let reg = /[0-9]/g
+            let v = vert.replace(reg, "")
 
-
-function sortTriangle(arr, arrOfAreas) {
-    let arrOfCopy = arr.slice();
-
-    for (let j = 0; j < arr.length - 1; j++) {
-        for (let k = 0; k < arr.length; k++) {
-            if (arrOfAreas[k] > arrOfAreas[k + 1]) {
-                let tmp = arrOfAreas[k];
-                arrOfAreas[k] = arrOfAreas[k + 1];
-                arrOfAreas[k + 1] = tmp;
-
-                tmp = arrOfCopy[k];
-                arrOfCopy[k] = arrOfCopy[k + 1];
-                arrOfCopy[k + 1] = tmp;
+            if (v.length === 0 && value[1].length === 0 && value[2].length === 0 && value[3].length === 0) {
+                message = {
+                    status: 'Failed',
+                    reason: 'All fields are empty',
+                };
+                return message
             }
-        }
-    }
+            if (v.length === 0) {
+                message = {
+                    status: 'Failed',
+                    reason: 'Vertex name not passed!',
+                };
+                return message
+            }
+            if (v.length < 3) {
+                message = {
+                    status: 'Failed',
+                    reason: 'The name of the vertices must be 3 letters.',
+                };
+                return message
+            }
+            if (v.length > 3) {
+                message = {
+                    status: 'Failed',
+                    reason: 'The name of the vertices cannot be more than three letters.',
+                };
+                return message
+            }
+            if (Number(value[1]) < 0 || Number(value[2]) < 0 || Number(value[3]) < 0) {
+                message = {
+                    status: 'Failed',
+                    reason: 'Incorrectly entered sides,the sides of the triangle must be a positive number',
+                };
+                return message;
+            }
+            if (!Number(value[1]) || !Number(value[2]) || !Number(value[3])) {
+                message = {
+                    status: 'Failed',
+                    reason: 'Incorrectly entered sides, sides can only be a number',
+                };
+                return message;
+            }
+            if (a > 50 || b > 50 || c > 50) {
+                message = {
+                    status: 'Failed',
+                    reason: 'Sides of triangle cant be more than 50',
+                };
+                return message;
+            }
+            if ((Number(value[1]) > Number(value[2]) + Number(value[3])) ||
+                (Number(value[2]) > Number(value[1]) + Number(value[3])) ||
+                (Number(value[3]) > Number(value[1]) + Number(value[2]))) {
+                message = {
+                    status: 'Failed',
+                    reason: 'One side of the triangle is greater than the sum of the other two',
+                };
 
-    return arrOfCopy;
+                return message
+
+            }
+        })
+   
+    }
+    return message
+
 }

@@ -11,7 +11,7 @@ describe("Chessboard tests", function () {
         });
     it(`Show instructions when fields are empty`,
         function () {
-            assert.deepEqual((chessboard("", "", "")), { status: "Failed", reason: "Incorrectly entered length and / or width. It must be a number" });
+            assert.deepEqual((chessboard("", "", "")), { status: "Failed", reason: "All fields are empty" });
         });
     it(`A symbol cannot be a letter or a number`,
         function () {

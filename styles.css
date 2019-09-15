@@ -70,25 +70,24 @@ h3 {
 .mocha h1 {
     margin: 0 !important;
     padding: 5px 0!important;
-}
-
-.mocha li {
-    padding: 0px 0!important;
-    font-size: 20px !important;
-}
-
-.mocha h1 {
     color: rgb(25, 67, 92) !important;
     font-size: 30px !important;
 }
 
-.mocha h2 {
-    font-size: 18px !important;
+#mocha #mocha-stats .progress {
+    height: 40px !important;
 }
 
-#mocha-stats .progress {
+#mocha #mocha-stats {
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 0.97) 49%, rgba(237, 237, 237, 0.94) 100%);
+}
 
-  width: 40 !important;
-  height: 50 !important;
-    /* height: 100%; */
+#mocha #mocha-report .suite{
+   margin-left:0px ;
+   padding-left: 0px;
+}
+
+.mocha h2 {
+    font-size: 18px !important;
 }
