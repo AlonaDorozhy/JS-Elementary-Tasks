@@ -155,6 +155,39 @@ function runNumberSequence(n) {
     }
 }
 
+// TASK 7
+function runFibonacci(n) {
+  
+    let input = document.form7.elements;//get inputs
+  console.log(input[0].value, input[1].value);
+    let result = fibonacci({min: input[0].value, max: input[1].value });
+
+    if (!result.status) {
+        document.getElementById('result7').innerHTML = ` ${result} `;
+    } else {
+        document.getElementById('err7').innerHTML = ` ${result.reason} `;
+        document.getElementById('err7').style = "color:  rgba(245, 25, 25, 0.616);";
+        setTimeout(() => {
+            document.getElementById('err7').innerHTML = "";
+        }, 4000)
+    }
+}
+function runFibonacciLen(n) {
+
+    let input = document.form7len.elements;//get inputs
+console.log(input[0].value);
+    let result = fibonacci({ length: input[0].value});
+
+    if (!result.status) {
+        document.getElementById('result7l').innerHTML = ` ${result} `;
+    } else {
+        document.getElementById('err7').innerHTML = ` ${result.reason} `;
+        document.getElementById('err7').style = "color:  rgba(245, 25, 25, 0.616);";
+        setTimeout(() => {
+            document.getElementById('err7').innerHTML = "";
+        }, 4000)
+    }
+}
 
 
 //error handling function

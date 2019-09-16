@@ -1,5 +1,5 @@
 function Sequence(rowLength, square) {
-    // let result = checkValidSeq(rowLength, square);
+  
     if (!checkValidSeq(rowLength, square)) {
         const rowNumbers = [];
         let startNumber = Math.sqrt(square);
