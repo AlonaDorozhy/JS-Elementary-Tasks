@@ -7,7 +7,7 @@ function triangles(array) {
             info.push(Object.values(array[i]));
             p = ((parseFloat(info[i][1]) + parseFloat(info[i][2]) + parseFloat(info[i][3])) * 0.5).toFixed(2);
             S = Math.sqrt(p * (p - parseFloat(info[i][1])) * (p - parseFloat(info[i][2])) * (p - parseFloat(info[i][3]))).toFixed(2);
-            sortArray.push([parseFloat(S), array[i].vertices.toUpperCase()])
+            sortArray.push([parseFloat(S), array[i].vertices.toUpperCase()]);
         }
         sortArray.sort(function (a, b) {
             if (a[0] > b[0])  return -1;
@@ -15,12 +15,12 @@ function triangles(array) {
             return 0;
         });
         for (i = 0; i < sortArray.length; i++) {
-            result += ` ${sortArray[i][1]} :  ${sortArray[i][0]} </br>`
+            result += ` ${sortArray[i][1]} :  ${sortArray[i][0]} </br>`;
         }
-        return result
+        return result;
     } else {
         result = checkValidTriangles(array)
-        return result
+        return result;
     }
 
 }
@@ -56,36 +56,36 @@ function checkValidTriangles(arr) {
             let a = parseFloat(value[1]);
             let b = parseFloat(value[2]);
             let c = parseFloat(value[3]);
-            let reg = /[0-9]/g
-            let v = vert.replace(reg, "")
+            let reg = /[0-9]/g;
+            let v = vert.replace(reg, "");
 
             if (v.length === 0 && value[1].length === 0 && value[2].length === 0 && value[3].length === 0) {
                 message = {
                     status: 'Failed',
                     reason: 'All fields are empty',
                 };
-                return message
+                return message;
             }
             if (v.length === 0) {
                 message = {
                     status: 'Failed',
                     reason: 'Vertex name not passed!',
                 };
-                return message
+                return message;
             }
             if (v.length < 3) {
                 message = {
                     status: 'Failed',
                     reason: 'The name of the vertices must be 3 letters.',
                 };
-                return message
+                return message;
             }
             if (v.length > 3) {
                 message = {
                     status: 'Failed',
                     reason: 'The name of the vertices cannot be more than three letters.',
                 };
-                return message
+                return message;
             }
             if (Number(value[1]) < 0 || Number(value[2]) < 0 || Number(value[3]) < 0) {
                 message = {
@@ -116,12 +116,12 @@ function checkValidTriangles(arr) {
                     reason: 'One side of the triangle is greater than the sum of the other two',
                 };
 
-                return message
+                return message;
 
             }
         })
    
     }
-    return message
+    return message;
 
 }

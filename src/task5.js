@@ -24,7 +24,7 @@ function luckyTickets(context) {
         if (simple === hard) {
             count.winner = "No winner ";
         } else  count.winner = (simple > hard) ? "simple" : "hard";
-        result = `Simple: ${count.simple}  Hard: ${count.hard} <br> WINNER: ${count.winner}`
+        result = `Simple: ${count.simple}  Hard: ${count.hard} <br> WINNER: ${count.winner}`;
        
         console.log(result);
         return result;
@@ -60,49 +60,49 @@ function checkValidTicket(context) {
             status: 'Failed',
             reason: 'All fields are empty, value cannot be a zero',
         };
-        return message
+        return message;
     }
     else if (min === 0) {
         message = {
             status: 'Failed',
             reason: 'Min field is empty',
         };
-        return message
+        return message;
     }
    else if (max === 0) {
         message = {
             status: 'Failed',
             reason: 'Max field is empty',
         };
-        return message
+        return message;
     }
     else if (reg.test(min) === false || reg.test(max) === false) {
         message = {
             status: 'Failed',
             reason: 'Incorrectly entered min and / or max. It must be only a positive number',
         };
-        return message
+        return message;
     }
     else if (min > max || max ===0 ) {
         message = {
             status: 'Failed',
             reason: 'The minimum value must be less than the maximum value.',
         };
-        return message
+        return message;
     }
     else if ( max > 999999 ) {
         message = {
             status: 'Failed',
             reason: 'The possible maximum value cannot exceed 999999.',
         };
-        return message
+        return message;
     }
     else if ( max === min ) {
         message = {
             status: 'Failed',
             reason: 'Maximal and minimal value cannot be equal.',
         };
-        return message
+        return message;
     }
-    return message
+    return message;
 }

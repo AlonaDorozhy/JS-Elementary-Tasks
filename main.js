@@ -176,7 +176,7 @@ function runFibonacciLen(n) {
 
     let input = document.form7len.elements;//get inputs
 console.log(input[0].value);
-    let result = fibonacci({ length: input[0].value});
+    let result = fibonacci({min: "", max: "", length: input[0].value});
 
     if (!result.status) {
         document.getElementById('result7l').innerHTML = ` ${result} `;

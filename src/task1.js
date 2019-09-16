@@ -91,7 +91,7 @@ function checkValidBoard(l, w, s) {
         };
         return message;
     }
-  
+    console.log(message);
     return message
 
 }
