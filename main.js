@@ -179,7 +179,7 @@ function runFibonacci(n) {
     }
 }
 function runFibonacciLen(n) {
-
+    document.getElementById('result7l').innerHTML = "";
     let input = document.form7len.elements;//get inputs
 console.log(input[0].value);
     let result = fibonacci({min: "", max: "", length: input[0].value});
