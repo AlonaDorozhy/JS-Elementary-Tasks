@@ -2,7 +2,7 @@ function Palindrome(number) {
     let num = number;
     let palindromes = [];
     let longest;
-    console.log(number);
+  
     if (!checkValidPal(num)) {
         if(num.length ===1 ){
             result = `Unable to find a palindrome in one digit!`

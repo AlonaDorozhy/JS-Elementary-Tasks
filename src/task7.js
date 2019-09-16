@@ -2,20 +2,20 @@
     let max = Number(context.max)
     let min = Number(context.min)
     let length = Number(context.length)
-
     if (!checkValidFib(context)) {
         fibNumber = 0;
         if (length > 0) {
             let fibonacci = [0, 1];
             for (let i = 2; i < length; i++) {
                 fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
-                console.log(fibonacci);
+                
             }
             let info = ""
             for (let i = 0; i < fibonacci.length; i++) {
                 info += `${i + 1}. ${fibonacci[i]} <br>`
             }
             let result = `Your result of fibonacci numbers for length ${length}: <br>   ${info} `
+            console.log(result);
             return result;
         } else {
             let arr = []
@@ -31,7 +31,8 @@
                 [i]}, `
             }
             let result = `Your result of fibonacci numbers in the range from ${min} and to ${max}: ${info} `
-            console.log(info);
+           
+            console.log(result);
             return result
         }
 
@@ -41,6 +42,7 @@
         console.log(result);
         return result;
     }
+   
 }
 function FibBine(n) {  //  Bine 
     let sq5 = Math.sqrt(5);
@@ -76,6 +78,13 @@ function checkValidFib(info) {
             message = {
                 status: 'Failed',
                 reason: 'Passed numbers more then 100',
+            };
+            return message
+        }
+         if (length === "0") {
+            message = {
+                status: 'Failed',
+                reason: 'Passed numbers cant be 0',
             };
             return message
         }

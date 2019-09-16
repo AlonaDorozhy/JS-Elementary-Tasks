@@ -7,7 +7,7 @@ function luckyTickets(context) {
     let hard = 0;
     let result;
     let count; 
-    console.log(context);
+ 
     if (!checkValidTicket(context)) {
         for (min; min <= max; min++) {
             let currentTicket = String(min);

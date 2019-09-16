@@ -7,7 +7,7 @@ function Sequence(rowLength, square) {
             rowNumbers.push(startNumber);
         }
         let seq = rowNumbers.join(', ');
-        console.log(seq);
+      
         result = `Your result : ${seq}`
         return result
     } else {
