@@ -3,6 +3,7 @@
 
 
 function chessBoardRun(n) {
+      document.getElementById('result1').innerHTML = "";
     let input = document.form1.elements;
     let result = chessboard(input[0].value, input[1].value, input[2].value);
     console.log(result);
@@ -20,6 +21,7 @@ function chessBoardRun(n) {
 
 // TASK 2
 function runEnvelopes(i) {
+    document.getElementById('result2').innerHTML = "";
     let input = document.form2.elements;//get inputs
     let env1 = [input[0].value, input[1].value]
     let env2 = [input[2].value, input[3].value]
@@ -40,6 +42,7 @@ function runEnvelopes(i) {
 
 //TASK 3
 function allTriangles(n) {
+    document.getElementById('result3').innerHTML = "";
     let arrayTriangles = [];
     let getTriangles = document.querySelectorAll(".triangle");
 
@@ -98,6 +101,7 @@ function delTriangle() {
 //  TASK 4
 
 function runPalindrome(p) {
+    document.getElementById('result4').innerHTML = "";
     let value = document.form4.elements[0].value;
    
     let result = Palindrome(value);
@@ -118,6 +122,7 @@ function runPalindrome(p) {
 //TASK 5
 // TASK 5
 function runTickets(i) {
+    document.getElementById('result5').innerHTML = "";
     let input = document.form5.elements;//get inputs
     let min = input[0].value;
     let max = input[1].value;
@@ -139,6 +144,7 @@ console.log(max);
 
 // TASK 6
 function runNumberSequence(n) {
+    document.getElementById('result6').innerHTML = "";
     let input = document.form6.elements;//get inputs
 
     //run the main function
@@ -157,7 +163,7 @@ function runNumberSequence(n) {
 
 // TASK 7
 function runFibonacci(n) {
-  
+    document.getElementById('result').innerHTML = "";
     let input = document.form7.elements;//get inputs
   console.log(input[0].value, input[1].value);
     let result = fibonacci({min: input[0].value, max: input[1].value });
@@ -173,7 +179,7 @@ function runFibonacci(n) {
     }
 }
 function runFibonacciLen(n) {
-
+    document.getElementById('result7l').innerHTML = "";
     let input = document.form7len.elements;//get inputs
 console.log(input[0].value);
     let result = fibonacci({min: "", max: "", length: input[0].value});
@@ -189,26 +195,3 @@ console.log(input[0].value);
     }
 }
 
-
-//error handling function
-function errorHandler(err, result, n) {
-    console.log(err);
-    console.log(result);
-    let msg = "";
-
-    switch (err) {
-        case "invalid":
-            msg = "Incorrect value ";
-            break;
-
-        default:
-            msg = "Incorrect value ";
-    }
-
-
-    document.querySelectorAll(".result")[n].innerHTML = msg;
-    document.querySelectorAll(".result")[n].style = "color:  rgba(245, 25, 25, 0.616);";
-    setTimeout(() => {
-        document.querySelectorAll(".result")[n].innerHTML = "";
-    }, 4000)
-}
