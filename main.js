@@ -163,7 +163,7 @@ function runNumberSequence(n) {
 
 // TASK 7
 function runFibonacci(n) {
-    document.getElementById('result').innerHTML = "";
+    document.getElementById('result7').innerHTML = "";
     let input = document.form7.elements;//get inputs
   console.log(input[0].value, input[1].value);
     let result = fibonacci({min: input[0].value, max: input[1].value });
@@ -179,7 +179,7 @@ function runFibonacci(n) {
     }
 }
 function runFibonacciLen(n) {
-    document.getElementById('result7l').innerHTML = "";
+
     let input = document.form7len.elements;//get inputs
 console.log(input[0].value);
     let result = fibonacci({min: "", max: "", length: input[0].value});
