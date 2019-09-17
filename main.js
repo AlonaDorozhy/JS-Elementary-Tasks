@@ -122,7 +122,6 @@ function runFibonacciLen(i) {
 
 function showError (reason, n){
     document.getElementById(`err${n}`).innerHTML = ` ${reason} `;
-    // document.getElementById(`err${n}`).style = "color:  rgba(245, 25, 25, 0.616);";
     setTimeout(() => {
         document.getElementById(`err${n}`).innerHTML = "";
     }, 4000)

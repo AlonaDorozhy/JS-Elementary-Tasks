@@ -3,11 +3,11 @@ describe("Lucky Tickets", function () {
   describe('Checking the output of the correct result', function () {
     it(`Show result if no winner found.`,
       function () {
-        assert.equal(luckyTickets({ min: "1", max: "10" }), 'Simple: 0  Hard: 0 <br> WINNER: No winner ');
+        assert.equal(luckyTickets({ min: "1", max: "10" }), 'Simple: 0  Hard: 0 <br> WINNER: No winner');
       });
     it(`It converts object data  to array  and returns  it .`,
       function () {
-        assert.equal(luckyTickets({ min: "1", max: "10" }).toString(), 'Simple: 0  Hard: 0 <br> WINNER: No winner ');
+        assert.equal(luckyTickets({ min: "1", max: "10" }).toString(), 'Simple: 0  Hard: 0 <br> WINNER: No winner');
       });
     
     it(`Show result if winner hard and simple have 0.`,

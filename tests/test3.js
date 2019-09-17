@@ -14,25 +14,7 @@ describe("Triangle", function () {
         assert.equal((triangles([{ vertices: "ABC", a: "10", b: "10", c: "15" }])), ' ABC :  49.61 </br>');
       });
 
-    it(`Show result if three triangles with correct sides are entered.`,
-      function () {
-        assert.equal((triangles([{ vertices: "ABC", a: "10", b: "10", c: "15" },
-        { vertices: "AKD", a: "10", b: "12", c: "15" },
-        { vertices: "ALZ", a: "7", b: "10", c: "15" },])), ' AKD :  59.81 </br> ABC :  49.61 </br> ALZ :  29.39 </br>');
-      });
-    it(`Show the result if four triangles with the correct sides are entered.`,
-      function () {
-        assert.equal((triangles([{ vertices: "ASD", a: "4", b: "8", c: "10" },
-        { vertices: "BIJ", a: "9", b: "5", c: "7" },
-        { vertices: "POI", a: "5", b: "13", c: "9" },
-        { vertices: "OPL", a: "21", b: "25", c: "9" },])), ' OPL :  90.92 </br> BIJ :  17.41 </br> POI :  16.07 </br> ASD :  15.2 </br>');
-      });
-    it(`Show the result if three triangles with correct sides are entered, and two of them have a same area  .`,
-      function () {
-        assert.equal((triangles([{ vertices: "KLO", a: "10", b: "13", c: "8" },
-        { vertices: "ZSA", a: "10", b: "13", c: "8" },
-        { vertices: "EDF", a: "12", b: "18", c: "9" },])), ' EDF :  47.99 </br> KLO :  39.98 </br> ZSA :  39.98 </br>');
-      });
+
 
 
   })
