@@ -6,8 +6,8 @@ function luckyTickets(context) {
     let simple = 0;
     let hard = 0;
     let result;
-    let count; 
- 
+    let count;
+
     if (!checkValidTicket(context)) {
         for (min; min <= max; min++) {
             let currentTicket = String(min);
@@ -18,17 +18,17 @@ function luckyTickets(context) {
             let ticketArray = currentTicket.split('').map(number => Number(number));
             simple += simpleMethod(ticketArray);
             hard += hardMethod(ticketArray);
-            
+
         }
         count = { simple, hard };
         if (simple === hard) {
             count.winner = 'No winner';
-        } else  count.winner = (simple > hard) ? "simple" : "hard";
+        } else count.winner = (simple > hard) ? "simple" : "hard";
         result = `Simple: ${count.simple}  Hard: ${count.hard} <br> WINNER: ${count.winner}`;
-   
+
         return result;
 
-    }else{
+    } else {
         result = checkValidTicket(context);
         return result;
     }
@@ -52,7 +52,7 @@ function checkValidTicket(context) {
     let max = Number(context.max);
     let reg = /^\d+$/;
     let message = '';
-    
+
     if (min === 0 && max === 0) {
         message = {
             status: 'Failed',
@@ -67,7 +67,7 @@ function checkValidTicket(context) {
         };
         return message;
     }
-   else if (max === 0) {
+    else if (max === 0) {
         message = {
             status: 'Failed',
             reason: 'Max field is empty',
@@ -81,21 +81,21 @@ function checkValidTicket(context) {
         };
         return message;
     }
-    else if (min > max || max ===0 ) {
+    else if (min > max || max === 0) {
         message = {
             status: 'Failed',
             reason: 'The minimum value must be less than the maximum value.',
         };
         return message;
     }
-    else if ( max > 999999 ) {
+    else if (max > 999999) {
         message = {
             status: 'Failed',
             reason: 'The possible maximum value cannot exceed 999999.',
         };
         return message;
     }
-    else if ( max === min ) {
+    else if (max === min) {
         message = {
             status: 'Failed',
             reason: 'Maximal and minimal value cannot be equal.',
