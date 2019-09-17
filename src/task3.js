@@ -1,12 +1,12 @@
 function triangles(array) {
-    let p, S, result = "",
-        info = []
+    let  result = "";
+     let   info = [];
     let sortArray = []
     if (!checkValidTriangles(array)) {
-        for (let i = 0; i < array.length; i++) {
+        for (let i = 0; i < array.length; i=+1) {
             info.push(Object.values(array[i]));
-            p = ((parseFloat(info[i][1]) + parseFloat(info[i][2]) + parseFloat(info[i][3])) * 0.5).toFixed(2);
-            S = Math.sqrt(p * (p - parseFloat(info[i][1])) * (p - parseFloat(info[i][2])) * (p - parseFloat(info[i][3]))).toFixed(2);
+           let p = ((parseFloat(info[i][1]) + parseFloat(info[i][2]) + parseFloat(info[i][3])) * 0.5).toFixed(2);
+           let S = Math.sqrt(p * (p - parseFloat(info[i][1])) * (p - parseFloat(info[i][2])) * (p - parseFloat(info[i][3]))).toFixed(2);
             sortArray.push([parseFloat(S), array[i].vertices.toUpperCase()]);
         }
         sortArray.sort(function (a, b) {
@@ -14,12 +14,12 @@ function triangles(array) {
             if (a[0] < b[0]) return 1;
             return 0;
         });
-        for (i = 0; i < sortArray.length; i++) {
+        for (let i = 0; i < sortArray.length; i++) {
             result += ` ${sortArray[i][1]} :  ${sortArray[i][0]} </br>`;
         }
         return result;
     } else {
-        result = checkValidTriangles(array)
+        result = checkValidTriangles(array);
         return result;
     }
 
@@ -27,11 +27,11 @@ function triangles(array) {
 
 function checkValidTriangles(arr) {
 
-    let message
-    let frs = []
+    let message;
+    let frs = [];
     let uni = [];
-    for (i = 0; i < arr.length; i++) {
-        frs.push(arr[i].vertices)
+    for (let i = 0; i < arr.length; i=+1) {
+        frs.push(arr[i].vertices);
         function unique(frs) {
             uni = [];
             for (let str of frs) {
@@ -58,7 +58,6 @@ function checkValidTriangles(arr) {
             let c = parseFloat(value[3]);
             let reg = /[0-9]/g;
             let v = vert.replace(reg, "");
-
             if (v.length === 0 && value[1].length === 0 && value[2].length === 0 && value[3].length === 0) {
                 message = {
                     status: 'Failed',

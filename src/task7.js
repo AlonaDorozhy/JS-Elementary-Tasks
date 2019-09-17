@@ -11,35 +11,30 @@ function fibonacci(context) {
                 fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
 
             }
-            let info = ""
+            let info = ''
             for (let i = 0; i < fibonacci.length; i++) {
                 info += `${i + 1}. ${fibonacci[i]} <br>`;
             }
             let result = `Your result of fibonacci numbers for length ${length}: <br>   ${info} `;
-            console.log(result);
             return result;
         } else {
             let arr = [];
             for (let i = 0; fibNumber < max; ++i) {
-
                 fibNumber = FibBine(i);
                 if (fibNumber > max) break;
                 fibNumber >= min ? arr.push(fibNumber) : 0;
             }
-            let info = "";
+            let info = '';
             for (let i = 0; i < arr.length; i++) {
                 info += ` ${arr[i]}, `;
             }
             let result = `Your result of fibonacci numbers in the range from ${min} and to ${max}: ${info} `
-
-            console.log(result);
             return result;
         }
 
     }
     else {
         result = checkValidFib(context);
-        console.log(result);
         return result;
     }
 
@@ -51,13 +46,10 @@ function FibBine(n) {  //  Bine
     let res = Math.round((Math.pow(first, n) - Math.pow(second, n)) / sq5);
     return res
 }
-let obj = { min: 2, max: 15 }
-fibonacci(obj);
-
 
 function checkValidFib(info) {
     let reg = /[0-9]/g
-    let message = "";
+    let message = '';
     let length = info.length;
     let max = info.max;
     let min = info.min;

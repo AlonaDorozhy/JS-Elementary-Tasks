@@ -26,7 +26,7 @@
         <div class="row">
             <a href="indexTests.html" class="btn btn-primary btn-lg btn-block"> Tests</a>
         </div>
-        <h1>JS Elementary Tasks</h1>
+        <h1>JS Elementary Tasks </h1>
         <div class="row">
             <div class="col-4">
                 <div class="list-group" id="list-tab" role="tablist">
@@ -65,12 +65,12 @@
                                 <input type="text" class="form-control" placeholder="width  50">
                                 <input type="text" class="form-control" placeholder="symbol">
                             </div>
-                            <button type="button" class="btn btn-primary mb-2" onclick="chessBoardRun(0)">Run</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="chessBoardRun(1)">Run</button>
                         </form>
 
                         <div class=" result1"></div>
                         <div id="result1"></div>
-                        <div id="err1"></div>
+                        <div class="error" id="err1"></div>
 
                     </div>
 
@@ -98,12 +98,12 @@
                                 <input type="text" class="form-control" placeholder="width">
                                 <input type="text" class="form-control" placeholder="height">
                             </div>
-                            <button type="button" class="btn btn-primary mb-2" onclick="runEnvelopes(1)">Run</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="runEnvelopes(2)">Run</button>
                         </form>
 
                         <div class="result"></div>
                         <div id="result2"></div>
-                        <div id="err2"></div>
+                        <div class="error" id="err2"></div>
                     </div>
 
                     <!--Page of task №3-->
@@ -132,10 +132,10 @@
                                 onclick="addTriangle()">Add</button>
 
                             <button type="button" class="btn btn-primary btn-bottom mb-2"
-                                onclick="allTriangles()">Run</button>
+                                onclick="allTriangles(3)">Run</button>
                         </form>
                         <div id="result3"></div>
-                        <div id="err3"></div>
+                        <div class="error" id="err3"></div>
 
                     </div>
 
@@ -155,10 +155,10 @@
                             <div class="form-group mx-sm-3 mb-2">
                                 <input type="text" maxlength="100" class="form-control" placeholder="num">
                             </div>
-                            <button type="button" class="btn btn-primary mb-2" onclick="runPalindrome(3)">Run</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="runPalindrome(4)">Run</button>
                         </form>
                         <div id="result4"></div>
-                        <div id="err4"></div>
+                        <div class="error" id="err4"></div>
 
                     </div>
 
@@ -180,10 +180,10 @@
                                 <input type="text" class="form-control" maxlength="6" placeholder="min">
                                 <input type="text" class="form-control" maxlength="6" placeholder="max">
                             </div>
-                            <button type="button" class="btn btn-primary mb-2" onclick="runTickets(4)">Run</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="runTickets(5)">Run</button>
                         </form>
                         <div id="result5"></div>
-                        <div id="err5"></div>
+                        <div class="error" id="err5"></div>
 
                     </div>
 
@@ -204,10 +204,10 @@
                                 <input type="text" class="form-control" placeholder="square">
                             </div>
                             <button type="button" class="btn btn-primary mb-2"
-                                onclick="runNumberSequence(5)">Run</button>
+                                onclick="runNumberSequence(6)">Run</button>
                         </form>
                         <div id="result6"></div>
-                        <div id="err6"></div>
+                        <div class= "error" id="err6"></div>
 
                     </div>
 
@@ -228,7 +228,7 @@
                                 <label>Search by length: </label>
                                 <input type="text" class="form-control" placeholder="length">
                             </div>
-                            <button type="button" class="btn btn-primary mb-2" onclick="runFibonacciLen(6)">Run</button>
+                            <button type="button" class="btn btn-primary mb-2" onclick="runFibonacciLen(7)">Run</button>
                         </form>
                         <form class="form-inline" name="form7">
                             <div class="form-group mx-sm-3 mb-2">
@@ -240,9 +240,10 @@
                         </form>
                         <div  class="mx-sm-3 mb-2" id="result7"></div>
                         <div class="mx-sm-3 mb-2"  id="result7l"></div>
-                        <div  class="mx-sm-3 mb-2" id="err7"></div>
+                        <div  class="mx-sm-3 mb-2 error" id="err7"></div>
                     </div>
                 </div>
+              
             </div>
         </div>
         <div class="row">

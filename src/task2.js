@@ -8,28 +8,27 @@ function envelope(env1, env2) {
     if (!checkValidEnv(env1, env2)) {
         switch (true) {
             case a === c && b === d:
-                result = `These envelopes are the same size`
+                result = 'These envelopes are the same size'
                 break;
             case a === c || b === d:
-                result = `These envelopes have a same size side`
+                result = 'These envelopes have a same size side'
                 break;
             case a === d && b === c:
-                result = `These envelopes are the same size`
+                result = 'These envelopes are the same size'
                 break;
             case a < c && b < d:
-                result = `The first envelope will fit in the second`
+                result = 'The first envelope will fit in the second'
                 break;
             case a > c && b > d:
-                result = `The second envelope will fit in the first`
+                result = 'The second envelope will fit in the first'
                 break;
             default:
                 result = diagonal(a, b, c, d);
         }
     } else {
-        result = checkValidEnv(env1, env2)
+        result = checkValidEnv(env1, env2);
         return result;
     }
-
     return result;
 
 }
@@ -41,8 +40,8 @@ function diagonal(a, b, c, d, ) {
         let q = Math.sqrt(sumSq - a * a);
         let check = (a * b - p * q >= c * d * 2);
         if (check === true) {
-            result = `The second envelope will fit in the first diagonally`;
-        } else result = `These envelopes don't fit on top of each other.`
+            result = 'The second envelope will fit in the first diagonally';
+        } else result = 'These envelopes don\'t fit on top of each other.'
         return result;
     }
     else if (a > c && b < d) {
@@ -51,8 +50,8 @@ function diagonal(a, b, c, d, ) {
         let q = Math.sqrt(sumSq - c * c);
         let check = (c * d - p * q >= a * b * 2)
         if (check === true) {
-            result = `The first envelope will fit in the second diagonally.`;
-        } else result = `These envelopes don't fit on top of each other.`;
+            result = 'The first envelope will fit in the second diagonally.';
+        } else result = 'These envelopes don\'t fit on top of each other.';
         return result;
     }
     return result;
@@ -133,9 +132,6 @@ function checkValidEnv(env1, env2) {
         };
         return message;
     }
-
-
-    return message
-
+    return message;
 }
 

@@ -13,25 +13,23 @@ function luckyTickets(context) {
             let currentTicket = String(min);
 
             if (currentTicket.length < ticketMaxLength) {
-                currentTicket = "0".repeat(ticketMaxLength - currentTicket.length) + currentTicket;
+                currentTicket = '0'.repeat(ticketMaxLength - currentTicket.length) + currentTicket;
             }
-            let ticketArray = currentTicket.split("").map(number => Number(number));
+            let ticketArray = currentTicket.split('').map(number => Number(number));
             simple += simpleMethod(ticketArray);
             hard += hardMethod(ticketArray);
             
         }
         count = { simple, hard };
         if (simple === hard) {
-            count.winner = "No winner ";
+            count.winner = 'No winner';
         } else  count.winner = (simple > hard) ? "simple" : "hard";
         result = `Simple: ${count.simple}  Hard: ${count.hard} <br> WINNER: ${count.winner}`;
-       
-        console.log(result);
+   
         return result;
 
     }else{
         result = checkValidTicket(context);
-        console.log(result);
         return result;
     }
 }
@@ -53,7 +51,7 @@ function checkValidTicket(context) {
     let min = Number(context.min);
     let max = Number(context.max);
     let reg = /^\d+$/;
-    let message = "";
+    let message = '';
     
     if (min === 0 && max === 0) {
         message = {

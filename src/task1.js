@@ -1,10 +1,10 @@
 function chessboard(len, wid, sym) {
-    let rows = "";
+    let rows = '';
     let l = parseFloat(len);
     let w = parseFloat(wid);
     if (!checkValidBoard(len, wid, sym)) {
-        for (let i = 0; i < w; i++) {
-            for (let j = 0; j < l; j++) {
+        for (let i = 0; i < w; i+=1) {
+            for (let j = 0; j < l; j+=1) {
                 if ((j + i) % 2 === 0) {
                     rows += sym;
                 }
@@ -19,16 +19,13 @@ function chessboard(len, wid, sym) {
         rows = checkValidBoard(len, wid, sym);
         return rows;
     }
-
     return rows;
 }
 
 function checkValidBoard(l, w, s) {
-    let message = "";
-
+    let message = '';
     let regNum = /[a-zA-Z 1-9]/g;
-  
-    if (l.length ==0 && w.length == 0  && s.length == 0 ) {
+    if (l.length === 0 && w.length === 0  && s.length === 0 ) {
         message = {
             status: 'Failed',
             reason: 'All fields are empty',
@@ -42,7 +39,7 @@ function checkValidBoard(l, w, s) {
         };
         return message;
     }
-    else if (l.length == 0 || w.length == 0) {
+    else if (l.length === 0 || w.length === 0) {
         message = {
             status: 'Failed',
             reason: 'An empty field of length or width.',
@@ -91,7 +88,7 @@ function checkValidBoard(l, w, s) {
         };
         return message;
     }
-    console.log(message);
+  
     return message
 
 }

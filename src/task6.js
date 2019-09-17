@@ -7,19 +7,17 @@ function Sequence(rowLength, square) {
             rowNumbers.push(startNumber);
         }
         let seq = rowNumbers.join(', ');
-        console.log(seq);
         result = `Your result : ${seq}`;
         return result;
     } else {
         result = checkValidSeq(rowLength, square);
-        console.log(result);
         return result;
     }
 
 }
 
 function checkValidSeq(rowLength, square) {
-    let message = "";
+    let message = '';
     let len = Number(rowLength);
     let squ = Number(square);
 

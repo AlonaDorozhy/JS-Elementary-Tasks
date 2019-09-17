@@ -28,10 +28,9 @@ function Palindrome(number) {
     }
     else {
         result = checkValidPal(num);
-        console.log(result);
         return result;
     }
-    console.log(result);
+ 
     return result
 
 }

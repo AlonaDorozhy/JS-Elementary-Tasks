@@ -83,11 +83,15 @@ h3 {
     background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 0.97) 49%, rgba(237, 237, 237, 0.94) 100%);
 }
 
-#mocha #mocha-report .suite{
-   margin-left:0px ;
-   padding-left: 0px;
+#mocha #mocha-report .suite {
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
 .mocha h2 {
     font-size: 18px !important;
+}
+
+.error{
+    color: purple;
 }
